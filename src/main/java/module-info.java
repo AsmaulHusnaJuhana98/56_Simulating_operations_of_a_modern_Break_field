@@ -1,8 +1,8 @@
-module com.example.demo8 {
+module com.example.break_field_56 {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.demo8 to javafx.fxml;
-    exports com.example.demo8;
+    opens com.example.break_field_56 to javafx.fxml;
+    exports com.example.break_field_56;
 }
