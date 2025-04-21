@@ -6,12 +6,23 @@ import javafx.collections.ObservableList;
 import java.time.LocalDate;
 
 public class DummyTableViewClass {
+
     private int rmPurchasedAmount;
     private int rmUsedAmount;
     private int rmRemainingAmount;
-    private String brickType;
     private LocalDate rmDop;
 
+
+    private String brickType;
+
+
+    private int brickProducedAmount;
+    private int brickSoldAmount;
+    private LocalDate brickDos;
+
+    public DummyTableViewClass() {
+
+    }
 
     public DummyTableViewClass(int rmPurchasedAmount, int rmUsedAmount, int rmRemainingAmount, String brickType, LocalDate rmDop) {
         this.rmPurchasedAmount = rmPurchasedAmount;
@@ -24,7 +35,6 @@ public class DummyTableViewClass {
     private static final ObservableList<DummyTableViewClass> items = FXCollections.observableArrayList();
 
 
-    // Getters & setters
     public int getRmPurchasedAmount() { return rmPurchasedAmount; }
     public void setRmPurchasedAmount(int val) { rmPurchasedAmount = val; }
 
@@ -34,9 +44,20 @@ public class DummyTableViewClass {
     public int getRmRemainingAmount() { return rmRemainingAmount; }
     public void setRmRemainingAmount(int val) { rmRemainingAmount = val; }
 
+    public LocalDate getRmDop() { return rmDop; }
+    public void setRmDop(LocalDate val) { rmDop = val; }
+
+
     public String getBrickType() { return brickType; }
     public void setBrickType(String val) { brickType = val; }
 
-    public LocalDate getRmDop() { return rmDop; }
-    public void setRmDop(LocalDate val) { rmDop = val; }
+
+    public int getBrickProducedAmount() { return brickProducedAmount; }
+    public void setBrickProducedAmount(int val) { brickProducedAmount = val; }
+
+    public int getBrickSoldAmount() { return brickSoldAmount; }
+    public void setBrickSoldAmount(int val) { brickSoldAmount = val; }
+
+    public LocalDate getBrickDos() { return brickDos; }
+    public void setBrickDos(LocalDate val) { brickDos = val; }
 }

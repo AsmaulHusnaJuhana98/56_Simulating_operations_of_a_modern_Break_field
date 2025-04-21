@@ -132,8 +132,8 @@ public class RawMaterialsViewController
         }
 
         ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
-                new PieChart.Data("Red Brick", redBrickAmount),
-                new PieChart.Data("Clay Brick", clayBrickAmount)
+                new PieChart.Data("Red Brick Raw Material", redBrickAmount),
+                new PieChart.Data("Clay Brick Raw Material", clayBrickAmount)
         );
 
         rawMaterialQuantityPieChart.setData(list);
