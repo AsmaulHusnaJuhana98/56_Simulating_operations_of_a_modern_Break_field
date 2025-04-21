@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cse213.modernbreakfieldsimulation_simanto_inventoryclerk.UpdateRawMaterialViewController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cse213.modernbreakfieldsimulation_simanto_inventoryclerk.UpdateRawMaterialViewController">
     <children>
         <Button layoutX="537.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#homeButtonOnMouseClicked" text="Home" />
         <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#backButtonOnMouseClicked" prefHeight="25.0" prefWidth="49.0" text="Back" />
+        <Button layoutX="395.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#loadSalesDataTableButtonOnMouseClicked" prefHeight="25.0" prefWidth="150.0" text="Load Table" />
+        <Button layoutX="124.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#brickQuantityPieChartButtonOnMouseClicked" prefHeight="25.0" prefWidth="150.0" text="Brick Quantity Pie Chart" />
+        <TableView fx:id="salesDataTableView" layoutX="370.0" layoutY="101.0" prefHeight="205.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="brickTypeTableColumn" prefWidth="75.0" text="Type" />
+                <TableColumn fx:id="brickAmountTableColumn" prefWidth="54.0" text="Sold" />
+                <TableColumn fx:id="brickDosTableColumn" prefWidth="70.0" text="Date" />
+            </columns>
+        </TableView>
+      <PieChart fx:id="brickQuantityPieChart" layoutX="14.0" layoutY="50.0" prefHeight="256.0" prefWidth="316.0" style="-fx-background-color: lavender;" title="Brick Quantity" />
+      <Label layoutX="338.0" layoutY="50.0" prefHeight="17.0" prefWidth="166.0" text="Total Brick Produced:" />
+      <Label layoutX="338.0" layoutY="72.0" prefHeight="17.0" prefWidth="166.0" text="Total Brick Sold:" />
+      <Label fx:id="totalBrickProducedLabel" layoutX="511.0" layoutY="50.0" prefHeight="17.0" prefWidth="75.0" text="...." />
+      <Label fx:id="totalBrickSoldLabel" layoutX="511.0" layoutY="72.0" prefHeight="17.0" prefWidth="75.0" text="...." />
     </children>
-
 </AnchorPane>

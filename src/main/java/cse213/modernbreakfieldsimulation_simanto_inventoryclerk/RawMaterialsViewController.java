@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -36,6 +37,14 @@ public class RawMaterialsViewController
     private TableColumn<DummyTableViewClass, Integer> rmPurchasedAmountTableColumn;
     @FXML
     private TableColumn<DummyTableViewClass, Integer> rmUsedAmountTableColumn;
+    @FXML
+    private Label totalRmRemainingLabel;
+    @FXML
+    private Label totalRmPurchasedLabel;
+    @FXML
+    private Label totalRmUsedLabel;
+    @FXML
+    private TableColumn<DummyTableViewClass, String> typeTableColumn;
 
     @FXML
     public void initialize() {
@@ -43,7 +52,7 @@ public class RawMaterialsViewController
         rmPurchasedAmountTableColumn.setCellValueFactory(new PropertyValueFactory<DummyTableViewClass,Integer>("rmPurchasedAmount"));
         rmUsedAmountTableColumn.setCellValueFactory(new PropertyValueFactory<DummyTableViewClass,Integer>("rmUsedAmount"));
         rmDopTableColumn.setCellValueFactory(new PropertyValueFactory<DummyTableViewClass,LocalDate>("rmDop"));
-
+        typeTableColumn.setCellValueFactory(new PropertyValueFactory<>("brickType"));
     }
 
     @Deprecated
@@ -103,29 +112,36 @@ public class RawMaterialsViewController
     public void loadTableButtonOnMouseClicked(Event event) {
         brickDataTableView.getItems().clear();
 
-        DummyTableViewClass d1 = new DummyTableViewClass(
-                5000, // rmPurchasedAmount
-                2570, // rmUsedAmount
-                2430, // rmRemainingAmount
-                1300, // brickProducedAmount
-                900,  // brickSoldAmount
-                "Red Brick", // brickType
-                LocalDate.now().minusDays(12), // rmDop
-                LocalDate.now().minusDays(5)   // brickDos
-        );
+        int totalPurchased = 0;
+        int totalUsed = 0;
+        int totalRemaining = 0;
 
-        DummyTableViewClass d2 = new DummyTableViewClass(
-                4000,
-                3100,
-                900,
-                2000,
-                1500,
-                "Clay Brick",
-                LocalDate.now().minusDays(8),
-                LocalDate.now().minusDays(2)
-        );
 
-        brickDataTableView.getItems().addAll(d1, d2);
+        for (int i = 0; i < 5; i++) {
+            int rmPurchasedAmount = 5000 + i * 100; // Example
+            int rmUsedAmount = 2500 + i * 50;
+            int rmRemainingAmount = rmPurchasedAmount - rmUsedAmount;
+            String brickType = (i % 2 == 0) ? "Red Brick" : "Clay Brick";
+            LocalDate rmDop = LocalDate.now().minusDays(i);
+
+            DummyTableViewClass d = new DummyTableViewClass(
+                    rmPurchasedAmount,
+                    rmUsedAmount,
+                    rmRemainingAmount,
+                    brickType,
+                    rmDop
+            );
+
+            brickDataTableView.getItems().add(d);
+
+            totalPurchased += rmPurchasedAmount;
+            totalUsed += rmUsedAmount;
+            totalRemaining += rmRemainingAmount;
+        }
+
+        totalRmPurchasedLabel.setText("" + totalPurchased);
+        totalRmUsedLabel.setText("" + totalUsed);
+        totalRmRemainingLabel.setText("" + totalRemaining);
     }
 
 }
