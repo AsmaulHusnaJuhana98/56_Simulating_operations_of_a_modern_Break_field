@@ -12,9 +12,9 @@
       <Button layoutX="537.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#homeButtonOnMouseClicked" text="Home" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#backButtonOnMouseClicked" prefHeight="25.0" prefWidth="49.0" text="Back" />
       <Button layoutX="365.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#loadTableButtonOnMouseClicked" prefHeight="25.0" prefWidth="150.0" text="Load Table" />
-      <Button layoutX="72.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#brickQuantityPieChartButtonOnMouseClicked" prefHeight="25.0" prefWidth="150.0" text="Brick Quantity Pie Chart" />
-      <PieChart fx:id="brickQuantityPieChart" layoutX="15.0" layoutY="73.0" prefHeight="212.0" prefWidth="265.0" style="-fx-background-color: Lavender;" />
-      <TableView fx:id="brickDataTableView" layoutX="289.0" layoutY="121.0" prefHeight="185.0" prefWidth="301.0">
+      <Button layoutX="72.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#rawMaterialQuantityPieChartButtonOnMouseClicked" prefHeight="25.0" prefWidth="150.0" text="Brick Quantity Pie Chart" />
+      <PieChart fx:id="rawMaterialQuantityPieChart" layoutX="15.0" layoutY="73.0" prefHeight="212.0" prefWidth="265.0" style="-fx-background-color: Lavender;" />
+      <TableView fx:id="rawMaterialDataTableView" layoutX="289.0" layoutY="121.0" prefHeight="185.0" prefWidth="301.0">
         <columns>
             <TableColumn fx:id="typeTableColumn" prefWidth="76.0" text="Type" />
           <TableColumn fx:id="rmPurchasedAmountTableColumn" prefWidth="85.0" text="RM Purchased" />

@@ -25,11 +25,6 @@ import java.util.ArrayList;
 public class RawMaterialsViewController
 {
 
-    @javafx.fxml.FXML
-    private TableView<DummyTableViewClass> brickDataTableView;
-    @javafx.fxml.FXML
-    private PieChart brickQuantityPieChart;
-
     private ArrayList<BrickData> brickList;
     @FXML
     private TableColumn<DummyTableViewClass, LocalDate> rmDopTableColumn;
@@ -45,6 +40,10 @@ public class RawMaterialsViewController
     private Label totalRmUsedLabel;
     @FXML
     private TableColumn<DummyTableViewClass, String> typeTableColumn;
+    @FXML
+    private TableView<DummyTableViewClass> rawMaterialDataTableView;
+    @FXML
+    private PieChart rawMaterialQuantityPieChart;
 
     @FXML
     public void initialize() {
@@ -81,36 +80,9 @@ public class RawMaterialsViewController
         sameStage.show();
     }
 
-    @javafx.fxml.FXML
-    public void brickQuantityPieChartButtonOnMouseClicked(Event event) {
-        brickQuantityPieChart.getData().clear();
-
-        // Dummy values for now
-        int redBrickAmount = 1300;
-        int clayBrickAmount = 2000;
-
-        ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
-                new PieChart.Data("Red Brick", redBrickAmount),
-                new PieChart.Data("Clay Brick", clayBrickAmount)
-        );
-
-        brickQuantityPieChart.setData(list);
-
-        for (PieChart.Data data : brickQuantityPieChart.getData()) {
-            data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                Alert dataAlert = new Alert(Alert.AlertType.INFORMATION);
-                dataAlert.setHeaderText(null);
-                dataAlert.setContentText(
-                        "Total " + data.getName() + " produced: " + (int) data.getPieValue()
-                );
-                dataAlert.showAndWait();
-            });
-        }
-    }
-
     @FXML
     public void loadTableButtonOnMouseClicked(Event event) {
-        brickDataTableView.getItems().clear();
+        rawMaterialDataTableView.getItems().clear();
 
         int totalPurchased = 0;
         int totalUsed = 0;
@@ -132,7 +104,7 @@ public class RawMaterialsViewController
                     rmDop
             );
 
-            brickDataTableView.getItems().add(d);
+            rawMaterialDataTableView.getItems().add(d);
 
             totalPurchased += rmPurchasedAmount;
             totalUsed += rmUsedAmount;
@@ -144,4 +116,37 @@ public class RawMaterialsViewController
         totalRmRemainingLabel.setText("" + totalRemaining);
     }
 
+    @FXML
+    public void rawMaterialQuantityPieChartButtonOnMouseClicked(Event event) {
+        rawMaterialQuantityPieChart.getData().clear();
+
+        int redBrickAmount = 0;
+        int clayBrickAmount = 0;
+
+        for (DummyTableViewClass d : rawMaterialDataTableView.getItems()) {
+            if (d.getBrickType().equals("Red Brick")) {
+                redBrickAmount += d.getRmRemainingAmount();
+            } else if (d.getBrickType().equals("Clay Brick")) {
+                clayBrickAmount += d.getRmRemainingAmount();
+            }
+        }
+
+        ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
+                new PieChart.Data("Red Brick", redBrickAmount),
+                new PieChart.Data("Clay Brick", clayBrickAmount)
+        );
+
+        rawMaterialQuantityPieChart.setData(list);
+
+        for (PieChart.Data data : rawMaterialQuantityPieChart.getData()) {
+            data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                Alert dataAlert = new Alert(Alert.AlertType.INFORMATION);
+                dataAlert.setHeaderText(null);
+                dataAlert.setContentText(
+                        "Total remaining amount of " + data.getName() + ": " + (int) data.getPieValue()
+                );
+                dataAlert.showAndWait();
+            });
+        }
+    }
 }
