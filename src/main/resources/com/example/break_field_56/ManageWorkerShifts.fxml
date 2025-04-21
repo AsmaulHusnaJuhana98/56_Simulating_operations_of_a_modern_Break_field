@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.break_field_56.ManageWorkerShifts">
+   <children>
+      <Label fx:id="statuslab" layoutX="148.0" layoutY="216.0" text="Status message" />
+      <Label layoutX="120.0" layoutY="126.0" text="Shift start and end" />
+      <Button layoutX="200.0" layoutY="167.0" mnemonicParsing="false" onAction="#shiftbtn" text="Click for shift" />
+      <Label layoutX="120.0" layoutY="56.0" text="Select worker" />
+      <ComboBox fx:id="cbox" layoutX="211.0" layoutY="52.0" prefWidth="150.0" />
+      <TextField fx:id="textfield" layoutX="243.0" layoutY="122.0" />
+   </children>
+</AnchorPane>

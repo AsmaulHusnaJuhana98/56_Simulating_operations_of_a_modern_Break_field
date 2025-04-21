@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.break_field_56.TrackComplaintResolution">
+   <children>
+      <Label layoutX="137.0" layoutY="99.0" text="Enter Complaint" />
+      <Button layoutX="230.0" layoutY="150.0" mnemonicParsing="false" onAction="#trackbtn" text="Click for track" />
+      <Label fx:id="statuslab" layoutX="230.0" layoutY="191.0" text="Current status" />
+      <Label layoutX="137.0" layoutY="243.0" />
+      <Label fx:id="notificationlab" layoutX="183.0" layoutY="209.0" text="Customer notification status" />
+      <TextField fx:id="textfield" layoutX="258.0" layoutY="95.0" />
+   </children>
+</AnchorPane>
