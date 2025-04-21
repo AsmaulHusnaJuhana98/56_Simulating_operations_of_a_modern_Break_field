@@ -18,13 +18,6 @@ public class DummyTableViewClass {
 
     private static final ObservableList<DummyTableViewClass> items = FXCollections.observableArrayList();
 
-//    public DummyTableViewClass(int rmPurchasedAmount, int rmUsedAmount, LocalDate rmDop) {
-//        this.rmPurchasedAmount = rmPurchasedAmount;
-//        this.rmUsedAmount = rmUsedAmount;
-//        this.rmDop = rmDop;
-//    }
-
-
     public DummyTableViewClass(int rmPurchasedAmount, int rmUsedAmount, int rmRemainingAmount, int brickProducedAmount, int brickSoldAmount, String brickType, LocalDate rmDop, LocalDate brickDos) {
         this.rmPurchasedAmount = rmPurchasedAmount;
         this.rmUsedAmount = rmUsedAmount;

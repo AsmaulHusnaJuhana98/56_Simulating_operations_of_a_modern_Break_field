@@ -101,27 +101,6 @@ public class RawMaterialsViewController
 
     @FXML
     public void loadTableButtonOnMouseClicked(Event event) {
-//        brickDataTableView.getItems().clear();
-//
-//        // For testing, let's populate with dummy data
-//        DummyTableViewClass.getItems().clear(); // Clear previous
-//
-//        for (int i = 0; i < 5; i++) {
-//            int rmPurchasedAmount = 5000 + i * 100;
-//            int rmUsedAmount = 2500 + i * 50;
-//            LocalDate rmDop = LocalDate.now().minusDays(i);
-//
-//            DummyTableViewClass d = new DummyTableViewClass(
-//                    rmPurchasedAmount,
-//                    rmUsedAmount,
-//                    rmDop
-//            );
-//
-//            DummyTableViewClass.getItems().add(d);
-//        }
-//
-//        brickDataTableView.setItems(DummyTableViewClass.getItems());
-//    }
         brickDataTableView.getItems().clear();
 
         DummyTableViewClass d1 = new DummyTableViewClass(
