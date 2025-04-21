@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/56_Simulating_operations_of_a_modern_Break_field.iml" filepath="$PROJECT_DIR$/.idea/56_Simulating_operations_of_a_modern_Break_field.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Break_Field.iml" filepath="$PROJECT_DIR$/Break_Field.iml" />
     </modules>
   </component>
 </project>
